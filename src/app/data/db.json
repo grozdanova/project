@@ -1,0 +1,22 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Ivan",
+      "city": "Pernik",
+      "department": "HR"
+    },
+    {
+      "id": 2,
+      "name": "Gosho",
+      "city": "Silistra",
+      "department": "Finance"
+    },
+    {
+      "id": 3,
+      "name": "Dinko",
+      "city": "Shumen",
+      "department": "Hr"
+    }
+  ]
+}

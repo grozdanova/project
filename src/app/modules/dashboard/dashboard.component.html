@@ -1,0 +1,42 @@
+<h1>
+  Dashboard
+</h1>
+<p-dataTable [value]="data" selectionMode="single" [rows]="10" [(selection)]="selected" (onRowSelect)="onRowSelect($event)"
+[paginator]="true" [pageLinks]="3" [responsive]="true">
+   <p-column field="id" header="Id" [sortable]="true"></p-column>
+   <p-column field="name" header="Name" [sortable]="true"></p-column>
+   <p-column field="city" header="City" [sortable]="true"></p-column>
+   <p-column field="department" header="Department" [sortable]="true"></p-column>
+   <p-footer>
+       <div class="ui-helper-clearfix" style="width:100%">
+           <button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialog()" label="Add"></button>
+       </div>
+   </p-footer>
+</p-dataTable>
+
+<p-dialog header="Employee Details" [(visible)]="dialog" [responsive]="true" showEffect="fade" [modal]="true" [closable]="true">
+   <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="employee">
+       <div class="ui-grid-row">
+           <div class="ui-grid-col-4"><label for="name">Name</label></div>
+           <div class="ui-grid-col-8"><input type="text" pInputText id="year" [(ngModel)]="employee.name" /></div>
+       </div>
+       <div class="ui-grid-row">
+           <div class="ui-grid-col-4"><label for="city">City</label></div>
+           <div class="ui-grid-col-8"><input type="text" pInputText id="brand" [(ngModel)]="employee.city" /></div>
+       </div>
+       <div class="ui-grid-row">
+           <div class="ui-grid-col-4"><label for="department">Department</label></div>
+           <div class="ui-grid-col-8"><input type="text" pInputText id="color" [(ngModel)]="employee.department" /></div>
+       </div>
+   </div>
+   <p-footer>
+       <div class="ui-dialog-buttonpane ui-helper-clearfix">
+           <button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
+           <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+       </div>
+   </p-footer>
+</p-dialog>
+
+<ul>
+    <li *ngFor="let e of (employees| async)">{{e.name}}</li>
+</ul>
