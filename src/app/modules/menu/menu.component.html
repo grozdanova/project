@@ -4,13 +4,14 @@
       <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Reports</a>
+      <button type="button" pButton icon="fa-plus" style="float:left" (click)="showAdd()" label="Add"></button>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Analytics</a>
+      <button type="button" pButton icon="fa-close" (click)="showDelete()" label="Delete" ></button>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Export</a>
+      <button type="button" pButton icon="fa-edit" (click)="showUpdate()" label="Update"></button>
     </li>
   </ul>
-
+  <app-dialog [employee]="employee" [dialog]="show" [dialogHeader]="header" (add)="save($event)" (change)="dialogChange($event)"></app-dialog>
+  <p-growl [(value)]="msgs"></p-growl>

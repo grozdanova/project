@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { EmployeeService } from './services/employee.service';
-import { Employee } from './models/emloyee';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 
@@ -10,24 +8,11 @@ import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  data;
-  dialog: boolean;
-  employee;
-  newEmployee;
-  lastEmployee;
-  current;
 
-  constructor(private employeeService: EmployeeService) {
-
-   }
+  constructor() {}
 
   ngOnInit() {
-    // this.getData();
+
   }
-
-  // getData() {
-  //   this.employeeService.getEmployees().subscribe(res => this.data = res);
-  // }
-
 
 }

@@ -28,23 +28,23 @@ export class EmployeeService {
       headers: headers
      }).map(res => res.json());
   }
-  update(id, newData) {
+  update(employee) {
     const headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    const body = JSON.stringify(newData);
-    return this.http.patch('http://localhost:3000/employees/' + id,
+    const body = JSON.stringify(employee);
+    return this.http.patch('http://localhost:3000/employees/' + employee.id,
       body, {
         headers: headers
       }).map(res => res.json());
   }
-  delete(employee) {
+  delete(id) {
     const headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.delete('http://localhost:3000/employees/' + employee.id,
+    return this.http.delete('http://localhost:3000/employees/' + id,
      {
         headers: headers
-      }).map(res => employee);
+      }).map(res => res.json());
   }
 }

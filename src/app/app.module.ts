@@ -3,22 +3,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {Http, HttpModule} from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { EmployeeService} from './services/employee.service';
+import { EmployeeService} from './modules/dashboard/services/employee.service';
 import { AppComponent } from './app.component';
 
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { MenuModule } from './modules/menu/menu.module';
 import { NavbarModule} from './modules/navbar/navbar.module';
 import { HomeModule } from './modules/home/home.module';
+import { CustomDialogModule } from './modules/dialog/dialog.module';
 
 import { routing } from './app.routing';
 
 import { StoreModule } from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
-import reducer from './reducers';
-import { EmployeeEffects } from './effects/employee.effects';
-import { EmployeeActions } from './actions/actions';
+import { reducers } from './app.store';
+import { EmployeeEffects } from './modules/dashboard/effects/dashboard.effects';
+import * as fromEmployeeActions from './modules/dashboard/actions/dashboard.action';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+
 
 
 @NgModule({
@@ -34,12 +37,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     MenuModule,
     NavbarModule,
     HomeModule,
+    CustomDialogModule,
     routing,
-    StoreModule.provideStore(reducer),
-    StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    EffectsModule.run(EmployeeEffects)
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([EmployeeEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 // Retains last 25 states
+    })
   ],
-  providers: [EmployeeService, EmployeeActions],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
