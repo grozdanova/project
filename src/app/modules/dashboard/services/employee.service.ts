@@ -47,4 +47,12 @@ export class EmployeeService {
         headers: headers
       }).map(res => res.json());
   }
+
+  getNmp(decomp) {
+    return this.http.get('assets/nmp.json').map(res => res.json()).toPromise()
+    .then(res => {
+          res = res[decomp];
+          return res;
+      });
+  }
 }

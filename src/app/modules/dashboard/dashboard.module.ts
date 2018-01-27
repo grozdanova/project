@@ -9,9 +9,11 @@ import {ButtonModule} from 'primeng/primeng';
 import { EmployeeService } from './services/employee.service';
 import {CustomDialogModule} from '../dialog/dialog.module';
 import {GrowlModule} from 'primeng/primeng';
+import { NmpModule } from '../nmp/nmp.module';
+
 @NgModule({
-    imports: [CommonModule, FormsModule, DataTableModule, SharedModule,
-        DialogModule, InputTextModule, ButtonModule, CustomDialogModule, GrowlModule],
+    imports: [CommonModule, FormsModule, DataTableModule, SharedModule, DialogModule,
+         InputTextModule, ButtonModule, CustomDialogModule, GrowlModule, NmpModule],
     declarations: [DashboardComponent],
     exports: [DashboardComponent],
     providers: [EmployeeService]

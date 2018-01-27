@@ -1,0 +1,11 @@
+<br>
+<h1>
+  Non matched payments!
+</h1>
+<br>
+<p-dataTable [value]="data" selectionMode="single" [rows]="10" [(selection)]="selected"
+[paginator]="true" [pageLinks]="3" [responsive]="true">
+<p-column field="date" header="Date" [sortable]="true"></p-column>
+<p-column field="amount" header="Amount" [sortable]="true"></p-column>
+<p-column field="comment" header="Comment" ></p-column>
+</p-dataTable>

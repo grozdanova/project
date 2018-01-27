@@ -21,7 +21,8 @@ import { EmployeeEffects } from './modules/dashboard/effects/dashboard.effects';
 import * as fromEmployeeActions from './modules/dashboard/actions/dashboard.action';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-
+import { NmpModule } from './modules/nmp/nmp.module';
+import { NmpEffects } from './modules/nmp/effects/nmp.effects';
 
 
 @NgModule({
@@ -38,9 +39,10 @@ import { environment } from '../environments/environment';
     NavbarModule,
     HomeModule,
     CustomDialogModule,
+    NmpModule,
     routing,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([EmployeeEffects]),
+    EffectsModule.forRoot([EmployeeEffects, NmpEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25 // Retains last 25 states
     })
