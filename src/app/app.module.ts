@@ -21,8 +21,8 @@ import { EmployeeEffects } from './modules/dashboard/effects/dashboard.effects';
 import * as fromEmployeeActions from './modules/dashboard/actions/dashboard.action';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { NmpModule } from './modules/nmp/nmp.module';
-import { NmpEffects } from './modules/nmp/effects/nmp.effects';
+import { PouchDBService } from './pouchdb.service';
+import { TableModule } from './shared/ui/table/table.module';
 
 
 @NgModule({
@@ -39,15 +39,15 @@ import { NmpEffects } from './modules/nmp/effects/nmp.effects';
     NavbarModule,
     HomeModule,
     CustomDialogModule,
-    NmpModule,
+    TableModule,
     routing,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([EmployeeEffects, NmpEffects]),
+    EffectsModule.forRoot([EmployeeEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25 // Retains last 25 states
     })
   ],
-  providers: [],
+  providers: [PouchDBService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

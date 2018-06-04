@@ -1,0 +1,148 @@
+<p>
+  search works!
+</p>
+
+<form [formGroup]="myForm" (ngSubmit)="onSearch(myForm.value)">
+  <div class="row">
+      <div class="col-md-12 col-xs-12">
+          <div class="card">
+              <div class="card-header card-header-icon" data-background-color="rose">
+                  <i class="fa fa-search fa-2x"></i>
+              </div>
+              <div class="card-content minh-250">
+                  <h4 class="card-title">debtor</h4>
+                  <div class="row form-horizontal">
+
+                      <div class="col-md-4 col-xs-12">
+
+                          <div class="row">
+                              <label class="col-sm-6 col-xs-4 label-on-right">Client account</label>
+
+                          </div>
+
+                          <div class="row">
+                              <label class="col-sm-6 col-xs-4 label-on-right">Your reference</label>
+                              <div class="col-sm-6 col-xs-8">
+                                  <div class="form-group label-floating is-empty">
+                                      <input type="text" formControlName="number" name="refext"
+                                      class="form-control" placeholder="...">
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="row">
+                              <label class="col-sm-6 col-xs-4 label-on-right">Internal case reference</label>
+                              <div class="col-sm-6 col-xs-8">
+                                  <div class="form-group label-floating is-empty">
+                                      <input type="text" formControlName="caseRef" name="refdoss"
+                                      class="form-control" placeholder="...">
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="row">
+                              <label class="col-sm-6 col-xs-4 label-on-right">name</label>
+                              <div class="col-sm-6 col-xs-8">
+                                  <div class="form-group label-floating is-empty">
+                                      <input type="text" formControlName="name" name="name"
+                                      class="form-control" placeholder="...">
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="row">
+                              <label class="col-sm-6 col-xs-4 label-on-right">vat</label>
+                              <div class="col-sm-6 col-xs-8">
+                                  <div class="form-group label-floating is-empty">
+                                      <input type="text" formControlName="vat" name="vat"
+                                      class="form-control" placeholder="...">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <label class="col-sm-6 col-xs-4 label-on-right">national number</label>
+                              <div class="col-sm-6 col-xs-8">
+                                  <div class="form-group label-floating is-empty">
+                                      <input type="text" formControlName="siret" name="siret"
+                                      class="form-control" placeholder="...">
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+
+
+                      <div class="col-md-4 col-xs-12">
+                          <div class="row">
+                              <label class="col-sm-6 col-xs-4 label-on-right">country</label>
+
+                          </div>
+                          <div class="row">
+                              <label class="col-sm-6 col-xs-4 label-on-right">city</label>
+                              <div class="col-sm-6 col-xs-8">
+                                  <div class="form-group label-floating is-empty">
+                                      <input type="text" formControlName="city" name="city"
+                                      class="form-control" placeholder="...">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <label class="col-sm-6 col-xs-4 label-on-right">zip</label>
+                              <div class="col-sm-6 col-xs-8">
+                                  <div class="form-group label-floating is-empty">
+                                      <input type="text" formControlName="zip" name="postCode"
+                                      class="form-control" placeholder="...">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <label class="col-sm-6 col-xs-4 label-on-right">address</label>
+                              <div class="col-sm-6 col-xs-8">
+                                  <div class="form-group label-floating is-empty">
+                                      <input type="text" formControlName="address" name="address"
+                                      class="form-control" placeholder="...">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <label class="col-sm-6 col-xs-4 label-on-right">address2</label>
+                              <div class="col-sm-6 col-xs-8">
+                                  <div class="form-group label-floating is-empty">
+                                      <input type="text" formControlName="address2" name="address2"
+                                      class="form-control" placeholder="...">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+
+                  </div>
+
+                  <div class="row">
+                          <div class="col-md-6 col-sm-6">
+                              <button type="submit" class="btn btn-rose" name="search" value="search">
+                                  search
+                              </button>
+                          </div>
+                  </div>
+
+
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+</form>
+
+
+<h4>Wrapped table</h4>
+<br><br>
+<app-table [value]="data" >
+    <p-column field="id" header="Id" [sortable]="true"></p-column>
+    <p-column field="name" header="Name" [sortable]="true"></p-column>
+    <p-column field="city" header="City" [sortable]="true"></p-column>
+    <p-column field="department" header="Department" [sortable]="true"></p-column>
+</app-table>
+
+<p-schedule [events]="events"></p-schedule>
