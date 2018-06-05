@@ -15,8 +15,11 @@
         </div>
     </p-footer>
 </p-dataTable>
+
 <app-dialog [employee]="employee" [dialog]="show" (change)="dialogChange($event)"
-(add)="save($event)" [dialogHeader]="header" ></app-dialog>
+(add)="save($event)" [dialogHeader]="header" >
+</app-dialog>
+
 <p-growl [(value)]="msgs"></p-growl>
 
 <app-nmp></app-nmp>

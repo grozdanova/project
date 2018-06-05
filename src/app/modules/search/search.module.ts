@@ -6,8 +6,6 @@ import { EmployeeService } from '../dashboard/services/employee.service';
 import { SearchComponent } from './search.component';
 import { TableModule } from '../../shared/ui/table/table.module';
 import { SharedModule } from 'primeng/primeng';
-import $ from 'jquery';
-import 'fullcalendar';
 import { Routes, RouterModule } from '@angular/router';
 
 import { StoreModule } from '@ngrx/store';

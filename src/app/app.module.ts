@@ -10,7 +10,7 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { MenuModule } from './modules/menu/menu.module';
 import { NavbarModule} from './modules/navbar/navbar.module';
 import { HomeModule } from './modules/home/home.module';
-import { CustomDialogModule } from './modules/dialog/dialog.module';
+import { CustomDialogModule } from '../app/shared/ui/dialog/dialog.module';
 
 import { routing } from './app.routing';
 
@@ -21,7 +21,6 @@ import { EmployeeEffects } from './modules/dashboard/effects/dashboard.effects';
 import * as fromEmployeeActions from './modules/dashboard/actions/dashboard.action';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { PouchDBService } from './pouchdb.service';
 import { TableModule } from './shared/ui/table/table.module';
 
 
@@ -47,7 +46,7 @@ import { TableModule } from './shared/ui/table/table.module';
       maxAge: 25 // Retains last 25 states
     })
   ],
-  providers: [PouchDBService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

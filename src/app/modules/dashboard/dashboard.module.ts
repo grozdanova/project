@@ -7,7 +7,7 @@ import {DialogModule} from 'primeng/primeng';
 import {InputTextModule} from 'primeng/primeng';
 import {ButtonModule} from 'primeng/primeng';
 import { EmployeeService } from './services/employee.service';
-import {CustomDialogModule} from '../dialog/dialog.module';
+import {CustomDialogModule} from '../../shared/ui/dialog/dialog.module';
 import {GrowlModule} from 'primeng/primeng';
 import { NmpModule } from '../nmp/nmp.module';
 

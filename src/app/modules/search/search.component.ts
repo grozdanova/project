@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
-import { PouchDBService } from '../../pouchdb.service';
 import { Subscription } from 'rxjs/Subscription';
 
 
@@ -54,7 +53,7 @@ export class SearchComponent implements OnInit {
       }
   ];
 
-  constructor(private formBuilder: FormBuilder, private dbService: PouchDBService) {
+  constructor(private formBuilder: FormBuilder) {
 
     this.myForm = formBuilder.group({
       // 'accCode': [ defaultForm['decompte'] ||  '' ],
@@ -72,14 +71,11 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSubcr = this.dbService.list().then( allDoc => {
-      console.log('All rows: ', allDoc.rows);
-    });
+
   }
 
   onSearch(formValue: Object) {
     console.log(formValue);
 
-    this.dbService.save(formValue);
   }
 }
