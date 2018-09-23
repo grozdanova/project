@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {Http, HttpModule} from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { EmployeeService} from './modules/dashboard/services/employee.service';
 import { AppComponent } from './app.component';
@@ -23,6 +23,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { TableModule } from './shared/ui/table/table.module';
 
+import { MyCustomDialogModule } from './../ui/myDialog/customDialog.module';
+import {OrderListModule} from 'primeng/components/orderlist/orderlist';
+
 
 @NgModule({
   declarations: [
@@ -39,12 +42,15 @@ import { TableModule } from './shared/ui/table/table.module';
     HomeModule,
     CustomDialogModule,
     TableModule,
+    MyCustomDialogModule,
     routing,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([EmployeeEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25 // Retains last 25 states
-    })
+    }),
+    OrderListModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

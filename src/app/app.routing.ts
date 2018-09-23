@@ -8,5 +8,9 @@ const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     {path: 'dashboard', component: DashboardComponent },
     { path: 'search', loadChildren: './modules/search/search.module#SearchModule' },
+    {
+      path: 'listings',
+      loadChildren: 'app/modules/listings/listings.module#ListingsModule'
+    },
   ];
   export const routing = RouterModule.forRoot(APP_ROUTES);
